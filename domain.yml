@@ -1,0 +1,33 @@
+version: "3.1"
+
+intents:
+  - greet
+  - inform
+  - ask_flood_prevention
+  - ask_flood_level
+  - thanks
+  - goodbye
+  - nlu_fallback  
+  - bot_challenge
+
+responses:
+  utter_greet:
+    - text: "你好！有什么我可以帮你的吗？"
+  utter_flood_prevention_info:
+    - text: "请在以下网站获取洪水防御信息：https://www.flood.gov/"
+  utter_flood_level_info:
+    - text: "请查询以下网站获取最新洪水水位信息：https://www.wateroffice.ec.gc.ca/"
+  utter_ask_more_info:
+    - text: "还有其他问题吗？"
+  utter_thanks:
+    - text: "不客气，祝您平安！"
+  utter_goodbye:
+    - text: "再见！"
+  utter_default:
+    - text: "抱歉，我不明白你的意思，请换个方式表达。" 
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
