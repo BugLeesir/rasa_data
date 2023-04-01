@@ -28,3 +28,17 @@ stories:
   - action: utter_thanks
   - intent: goodbye
   - action: utter_goodbye
+
+
+- story: be happy
+  steps:
+    - intent: sad
+    - action: utter_sad
+
+- story: get user location
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: ask_location
+    - action: utter_ask_location
+    - action: action_fill_location
