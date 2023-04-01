@@ -76,3 +76,8 @@ nlu:
     - 今天天气如何
     - 我在南昌
 
+- intent: ask_for_location
+  examples: |
+    - 在[北京](location)天气怎么样？
+    - [上海](location)现在的温度是多少？
+    - 我想知道[广州](location)的风速。

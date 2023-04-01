@@ -11,7 +11,7 @@ intents:
   - bot_challenge
   - sad
   - weather_inform
-  - ask_location
+  - ask_for_location
 
 actions:
   - utter_greet
@@ -21,6 +21,7 @@ actions:
   - utter_ask_location
   - utter_weather_error
   - utter_weather_info
+  - action_fill_location
 
 
 responses:
@@ -41,7 +42,7 @@ responses:
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
   utter_sad:
-    - text: "别伤心了，打个交吧"
+    - text: "别伤心了， 睡一觉吧"
   utter_ask_location:
     - text: "请告诉我您的位置信息。"
   utter_weather_error:
@@ -49,12 +50,16 @@ responses:
   utter_weather_info:
     - text: "当前天气：{weather_description}，温度：{temperature}度，风速：{wind_speed}公里/小时。"
 
+entities:
+  - location
+
 slots:
   location:
     type: text
     mappings:
-      - type: form_entity
-        entity: location
+    - type: from_entity
+      entity: location
+      intent: weather_inform
 
 session_config:
   session_expiration_time: 60

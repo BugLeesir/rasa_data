@@ -35,10 +35,13 @@ stories:
     - intent: sad
     - action: utter_sad
 
-- story: get user location
+
+- story: handle_weather_query
   steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: ask_location
-    - action: utter_ask_location
-    - action: action_fill_location
+  - intent: weather_inform
+  - action: utter_ask_location
+  - intent: ask_for_location
+  - action: action_fill_location
+  - action: action_weather_api
+  - action: utter_weather_info
+  - active_loop: null

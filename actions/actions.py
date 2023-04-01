@@ -52,10 +52,9 @@
 #         return []
 
 import requests
-from typing import Any, Text, Dict, List, Union
+from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.forms import FormAction
 from rasa_sdk.types import DomainDict
 from rasa_sdk.events import SlotSet
 
@@ -63,9 +62,7 @@ class WeatherAPIAction(Action):
     def name(self) -> Text:
         return "action_weather_api"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: DomainDict) -> List[Dict[Text, Any]]:
+    def run(self, dispatcher: CollectingDispatcher,tracker: Tracker,domain: DomainDict) -> List[Dict[Text, Any]]:
         api_key = "7a2f481009dc95e40c26d42351201246"
         location = tracker.latest_message['text']
         base_url = "http://api.openweathermap.org/data/2.5/weather?"
